@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html ng-app="geektic">
+    <head>
+        <title>Geektic</title><br>
+        <link href="/js/bootstrap-3.1.1-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    
+    <body ng-controller="GeekCtrl">
+		<script src="/js/angular.js"></script>
+		<script src="/js/angular-route.js"></script>
+		<script src="/js/app.js"></script>
+     	
+     	<div>
+	 	 	<h1 class = "text-center">GEEKTIC</h1><br>
+	 	 	<p class = "text-center"><font color="#999999">Site de rencontre amoureuse spécial GEEK</font></p>
+	 	</div>
+	 	
+	 	<div style="width:27%; margin:auto; padding: 100px;border: solid 5px #999999; border-radius: 250px;">
+	 		<h4 class = "text-center">Je recherche :</h4>
+		 	 <input ng-model="sexe" type="radio" name="radioSex" value="M">&nbsp;Un Homme
+		 	 <br>
+			 <input ng-model="sexe" type="radio" name="radioSex" value="F" >&nbsp;Une Femme
+			 <br>
+			 <h4 class = "text-center">Centre d'interet :</h4>
+			 <select style="margin-top: 10px;" ng-model="interet" placeholder="selction" ng-options="interet.interet for interet in interets">
+			 	<option value="">Centre d'interet</option>
+			 </select>
+		</div>
+		 
+		<button class="btn btn-large btn-block btn-primary" style="width: 10%; margin:auto; margin-top:20px;border-color: #999999;  background-color: #999999" ng-click="recherche()";">Recherche</button>   
+     	<br>
+     	<div style="border: solid 5px #999999; margin: auto; width: 300px;  border-radius: 10px; padding: 5px;" ng-repeat="geek in geeksbysex"><br>		     
+		     <p>{{ geek.prenom }} {{ geek.nom }}</p>
+		     <p> Age: {{geek.age}} ans</p>
+		     <p> Email: {{geek.mail}}</p>
+		     <p> Centres d'interêt: </p>
+		     <ul>
+		     	<li ng-repeat="interet in geek.centresInteret">
+		     		{{ interet.interet }}
+		     	</li>
+		     </ul>
+		     <input type="button" name="Informations Supplémentaires" class="btn btn-large btn-block btn-primary"  value="Informations Supplémentaires" onclick="self.location.href='www.google.fr/'"  style="margin-top:20px;border-color: #999999;  background-color: #999999; font-weight:bold"onclick>
+	     </div>
+	     
+	     <br>
+
+    </body>
+</html>

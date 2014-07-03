@@ -20,4 +20,14 @@ public class HelloService {
     public HelloMessage sayHello() {
         return new HelloMessage();
     }
+    
+    @RequestMapping("/test")
+    public HelloMessage sayHello2() {
+        return new HelloMessage();
+    }
+    
+    
 }
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html ng-app="geektic">
+    <head>
+        <title>Geektic</title><br>
+        <link href="/js/bootstrap-3.1.1-dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+    </head>
+    
+    <body ng-controller="GeekCtrl">
+		<script src="/js/angular.js"></script>
+		<script src="/js/angular-route.js"></script>
+		<script src="/js/app.js"></script>
+     	
+     	<div>
+	 	 	<h1 class = "text-center">GEEKTIC</h1><br>
+	 	 	<p class = "text-center"><font color="#999999">Site de rencontre amoureuse spécial GEEK</font></p>
+	 	</div>
+	 	
+
+     	<div style="border: solid 5px #999999; margin: auto; width: 300px;  border-radius: 10px; padding: 5px;" ng-repeat="geek in geeksbysex"><br>		     
+		     <p>{{ geek.prenom }} {{ geek.nom }}</p>
+		     <p> Age: {{geek.age}} ans</p>
+		     <p> Email: {{geek.mail}}</p>
+		     <p> Centres d'interêt: </p>
+		     <ul>
+		     	<li ng-repeat="interet in geek.centresInteret">
+		     		{{ interet.interet }}
+		     	</li>
+		     </ul>
+	     </div>
+	     
+	     <br>
+
+    </body>
+</html>
