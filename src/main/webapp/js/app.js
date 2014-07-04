@@ -1,21 +1,10 @@
 var app = angular.module("geektic", ['ngRoute']);
 
 app.controller('GeekCtrl', function($scope, $http) 
-{
-    
-	$scope.constructionCombo = function()
-	{
-		$http.get('/api/geek/combo').success(function(interets) 
-		{
-            $scope.interets = interets;
-        });
-	}
-	
-	$scope.constructionCombo();
-	
+{	
 	$scope.recherche = function()
     {
-		if ($scope.sexe == "" || $scope.sexe == null || $scope.interet == "" || $scope.interet == null )
+		if ($scope.sexe == "" ||$scope.interet == "" || $scope.sexe == null || $scope.interet == null )
 		{
 			alert("Merci de sélectionner un centre d'interêt et un sexe");
 			return;
@@ -25,4 +14,15 @@ app.controller('GeekCtrl', function($scope, $http)
             $scope.geeksbysex = geeks;
         });
     };
+    
+    $scope.constructionCombo = function()
+	{
+		$http.get('/api/geek/combo').success(function(interets) 
+		{
+            $scope.interets = interets;
+        });
+	}
+    
+    $scope.constructionCombo();
+
 });
