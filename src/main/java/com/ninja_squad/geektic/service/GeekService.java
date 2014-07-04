@@ -31,5 +31,11 @@ public class GeekService
     {
         return gDAO.getGeeksByCriteria(s, i);
     }
+    
+    @RequestMapping("/byId/{id}")
+    public Geek afficherGeekParId(@PathVariable("id") int id)
+    {
+        return gDAO.getGeekById(id);
+    }
 }
 

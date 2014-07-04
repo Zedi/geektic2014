@@ -30,4 +30,9 @@ public class GeekDAO
 		TypedQuery<Geek> query = entitymanager.createQuery("SELECT distinct g from Geek as g left join fetch g.centresInteret inner join g.centresInteret as ci where g.sexe=:sexe and ci.interet=:interet", Geek.class);
         return query.setParameter("sexe", s).setParameter("interet", i).getResultList();
 	}
+	
+	public Geek getGeekById(int id)
+	{
+		return entitymanager.find(Geek.class,id);
+	}
 }

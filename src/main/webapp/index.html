@@ -28,21 +28,26 @@
 			 </select>
 		</div>
 		 
-		<button class="btn btn-large btn-block btn-primary" style="width: 10%; margin:auto; margin-top:20px;border-color: #FD0404;  background-color: #FD0404" ng-click="recherche()";">Recherche</button>   
+		<button class="btn btn-large btn-block btn-primary" style="width: 10%; margin:auto; margin-top:20px;border-color: #FD0404;  background-color: #FD0404" ng-click="recherche();">Recherche</button>   
      	<br>
-     	<div style="border: solid 5px #FD0404; margin: auto; width: 300px;  border-radius: 10px; padding: 5px;" ng-repeat="geek in geeksbysex"><br>		     
+     	<div style="border: solid 5px #FD0404; margin: auto; width: 300px;  border-radius: 10px; padding: 5px;" ng-repeat="geek in geeksbysex">	  
 		     <p><b>{{ geek.nom }} {{ geek.prenom }}</b></p>
+		     <button class="btn btn-large btn-block btn-primary" style="width: 100%; margin:auto; margin-top:20px;border-color: #FD0404;  background-color: #FD0404" ng-click="rechercheById(geek.idGeek);">Informations Supplémentaire</button>
+		</div><br>
+	     <br>
+		<br>
+     	<div style="border: solid 5px #FD0404; margin: auto; width: 300px;  border-radius: 10px; padding: 5px;" >	     
+		     <h2><b> Détail: </b></h2>
+		     <p><b>{{leGeek.nom }} {{ leGeek.prenom }}</b></p>
 		      <p> Centres d'interêt: </p>
 			<ul>
-				<li ng-repeat="interet in geek.centresInteret">
+				<li ng-repeat="interet in leGeek.centresInteret">
 					{{ interet.interet }}
 				</li>
 			</ul>
-		     <p> Age: {{geek.age}} ans</p>
-		     <p> Email: {{geek.mail}}</p>
-		     <button class="btn btn-large btn-block btn-primary" style="width: 100%; margin:auto; margin-top:20px;border-color: #FD0404;  background-color: #FD0404" ng-click="recherche()";">Informations Supplémentaire</button>
+		     <p> Age: {{leGeek.age}} ans</p>
+		     <p> Email: {{leGeek.mail}}</p>
 		</div><br>
 	     <br>
-
     </body>
 </html>

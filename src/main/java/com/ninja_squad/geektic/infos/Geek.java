@@ -30,7 +30,7 @@ public class Geek
 	@Column(name="PATHAVATAR")
 	public String cheminAvatar;
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(
 	      name="GEEK_CENTRES_INTERET",
 	      joinColumns={@JoinColumn(name="ID_GEEK", referencedColumnName="ID")},
